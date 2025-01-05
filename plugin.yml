@@ -1,28 +1,8 @@
 ---
 name: Oomph
-version: 1.0.0
+version: 1.1.0
 main: ethaniccc\Oomph\Oomph
 api: 5.0.0
 src-namespace-prefix: ethaniccc\Oomph
-permissions:
-  Oomph.Alerts:
-    description: Allows access to alerts on Oomph.
-    default: op
-  Oomph.Logs:
-    description: Allows access to logs on Oomph.
-    default: op
-commands:
-  oalerts:
-    description: Toggle Oomph alerts on/off.
-    usage: "/oalerts"
-    permission: "Oomph.Alerts"
-  odelay:
-    description: Changes how long the delay of alerts from Oomph are.
-    usage: "/odelay <seconds>"
-    permission: "Oomph.Alerts"
-  ologs:
-    description: Displays the checks that the specified player has failed on Oomph.
-    usage: "/ologs <player>"
-    permission: "Oomph.Logs"
 depend: Spectrum
 ...
