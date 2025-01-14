@@ -4,8 +4,10 @@ namespace ethaniccc\Oomph;
 
 use cooldogedev\Spectrum\Spectrum;
 use pocketmine\event\Listener;
+use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerToggleFlightEvent;
 use pocketmine\event\server\DataPacketReceiveEvent;
+use pocketmine\inventory\InventoryListener;
 use pocketmine\network\mcpe\protocol\PlayerAuthInputPacket;
 use pocketmine\network\mcpe\protocol\ProtocolInfo;
 use pocketmine\network\mcpe\protocol\types\PlayerAuthInputFlags;
@@ -16,9 +18,13 @@ class Oomph extends PluginBase implements Listener {
 	private const OOMPH_PACKET_DECODE = [
 		ProtocolInfo::ADD_ACTOR_PACKET,
 		ProtocolInfo::ADD_PLAYER_PACKET,
+		ProtocolInfo::AVAILABLE_COMMANDS_PACKET,
 		ProtocolInfo::CHUNK_RADIUS_UPDATED_PACKET,
+		ProtocolInfo::INVENTORY_SLOT_PACKET,
+		ProtocolInfo::INVENTORY_CONTENT_PACKET,
 		ProtocolInfo::LEVEL_CHUNK_PACKET ,
 		ProtocolInfo::MOB_EFFECT_PACKET ,
+		ProtocolInfo::MOB_ARMOR_EQUIPMENT_PACKET ,
 		ProtocolInfo::MOVE_ACTOR_ABSOLUTE_PACKET ,
 		ProtocolInfo::MOVE_PLAYER_PACKET ,
 		ProtocolInfo::REMOVE_ACTOR_PACKET ,
@@ -29,7 +35,7 @@ class Oomph extends PluginBase implements Listener {
 		ProtocolInfo::UPDATE_ABILITIES_PACKET ,
 		ProtocolInfo::UPDATE_ATTRIBUTES_PACKET ,
 		ProtocolInfo::UPDATE_BLOCK_PACKET ,
-		ProtocolInfo::UPDATE_PLAYER_GAME_TYPE_PACKET,
+		ProtocolInfo::UPDATE_PLAYER_GAME_TYPE_PACKET ,
 	];
 
 	private static Oomph $instance;
