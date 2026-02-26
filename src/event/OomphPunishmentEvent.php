@@ -22,7 +22,9 @@ final class OomphPunishmentEvent extends PlayerEvent {
 
 	public function __construct(
 		Player $player,
-		public int $punishmentType
+		public int $punishmentType,
+        public string $check,
+        public string $checkType
 	) {
 		$this->player = $player;
 	}
@@ -34,5 +36,13 @@ final class OomphPunishmentEvent extends PlayerEvent {
 	public function isBan(): bool {
 		return $this->punishmentType === self::TYPE_BAN;
 	}
+
+    public function getCheck(): string {
+        return $this->check;
+    }
+
+    public function getCheckType(): string {
+        return $this->checkType;
+    }
 
 }

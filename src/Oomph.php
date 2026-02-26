@@ -409,7 +409,7 @@ class Oomph extends PluginBase implements Listener {
 		}
 
 		$punishmentType = OomphPunishmentEvent::punishmentTypeFromString($settings["punishment"]);
-		$ev = new OomphPunishmentEvent($player, $punishmentType);
+		$ev = new OomphPunishmentEvent($player, $punishmentType, $check, $type);
 		$ev->call();
 		if ($ev->isCancelled()) return;
 
