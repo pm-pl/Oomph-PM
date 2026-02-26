@@ -382,7 +382,7 @@ class Oomph extends PluginBase implements Listener {
 					[$this->getConfig()->get("Prefix", "§l§7[§eoomph§7]"), $data["player"], $data["check_main"], $data["check_sub"], $data["violations"], $data["extraData"]],
 					$message
 				);
-				$ev = new OomphViolationEvent($player, $data["check_main"], $data["check_sub"], $data["violations"]);
+                $ev = new OomphViolationEvent($player, $data["check_main"], $data["check_sub"], $data["violations"], $data["extraData"] ?? '');
 				if (!$this->getConfig()->getNested("{$ev->getCheckName()}.{$ev->getCheckType()}", self::DEFAULT_CHECK_SETTINGS)["enabled"] ?? true) {
 					$ev->cancel();
 				}

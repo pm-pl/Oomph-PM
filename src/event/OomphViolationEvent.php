@@ -15,6 +15,7 @@ class OomphViolationEvent extends PlayerEvent {
 		public string $checkName,
 		public string $checkType,
 		public float  $violations,
+        public string $extraData = ''
 	) {
 		$this->player = $player;
 	}
@@ -31,4 +32,7 @@ class OomphViolationEvent extends PlayerEvent {
 		return $this->violations;
 	}
 
+    public function getExtraData(): string {
+        return $this->extraData;
+    }
 }
